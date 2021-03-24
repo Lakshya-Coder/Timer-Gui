@@ -140,14 +140,18 @@ public class GameFrame extends JFrame implements ActionListener {
         }
 
         if (e.getSource() == START) {
-            // if (START.getText() == "Stop" && start) {
-            //     timer.stop();
-            //     START.setText("Resume");
-            // } else {
-            //     start = true;
-            //     START.setText("Stop");
-                // timer.start();
-            // }
+            int ho = 0;
+            int mi = 0;
+            int se = 0;
+
+            try { ho = Integer.parseInt(new StringTokenizer(hour.getText()).nextToken()); } catch (Exception error) {}
+
+            try { mi = Integer.parseInt(new StringTokenizer(minute.getText()).nextToken()); } catch (Exception error) {}
+
+            try { se = Integer.parseInt(new StringTokenizer(second.getText()).nextToken()); } catch (Exception error) {}
+
+            if (ho == 0 || mi == 0 || se == 0) return;
+
             if (start) {
                 if (START.getText() == "Stop" && start) {
                     timer.stop();
